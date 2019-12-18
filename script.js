@@ -28,6 +28,7 @@ function addBookToLibrary() {
     myLibrary.push(newBook);
     // To reset the table headings
     table.innerHTML = html;
+    // This should be a named function that can be called to avoid redundancy
     let addNewBook = document.getElementById("addNewBook");
     if (addNewBook.style.display === "none") {
         addNewBook.style.display = "block"
