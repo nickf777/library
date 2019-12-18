@@ -6,18 +6,7 @@
 // I need to learn and figure out the fundamentals of firebase to make it possible to store the information.
 // I need to clean it all up and make it look visually appealing
 
-let myLibrary = [{
-    author: "Marie Forleo",
-    title: "Everything is Figure-outable",
-    numberOfPages: 246,
-    readStatus: "Read"
-},
-{
-    author: "Tony Robbins",
-    title: "Awaken the Giant Within",
-    numberOfPages: 350,
-    readStatus: "Read"
-}];
+let myLibrary = [];
 
 function Book(author, title, numberOfPages, readStatus) {
     // the constructor
@@ -27,16 +16,27 @@ function Book(author, title, numberOfPages, readStatus) {
     this.readStatus = readStatus
 }
 
-// When I click the add new book button
-// A window needs to pop up with a form that allows for user input 
-// The Book constructor needs to be called with the arguments provided by the form
-// That new Book instance needs to have its prototype set as the book
-// That new Book instance needs to be added to the array
-// The render function needs to be called again 
 
 function addBookToLibrary() {
-
+    let table = document.getElementById("library");
+    let author = document.getElementById("author").value;
+    let title = document.getElementById("title").value;
+    let numberPages = document.getElementById("numberPages").value;
+    let hasRead = document.querySelector("input[name=readStatus]:checked").value;
+    let newBook = new Book(author, title, numberPages, hasRead);
+    let html = "<tr><th>Author</th><th>Title</th><th>Number of Pages</th><th>Read Status</th></tr>"
+    myLibrary.push(newBook);
+    // To reset the table headings
+    table.innerHTML = html;
+    let addNewBook = document.getElementById("addNewBook");
+    if (addNewBook.style.display === "none") {
+        addNewBook.style.display = "block"
+    } else {
+        addNewBook.style.display = "none"
+    }
+    render()
 }
+
 
 function render() {
     myLibrary.forEach(book => {
@@ -66,3 +66,5 @@ addNewButton.addEventListener("click", function() {
         addNewBook.style.display = "none"
     }
 })
+
+document.getElementById("submit").addEventListener("click", addBookToLibrary);

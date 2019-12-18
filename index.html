@@ -24,12 +24,6 @@
                 <th>Number of Pages</th>
                 <th>Read Status</th>
             </tr>
-            <tr>
-                <td>Steven Pressfield</td>
-                <td>The War of Art</td>
-                <td>150</td>
-                <td>Read</td>
-            </tr>
         </table>
 
         <button id="addNewButton">Add New Book</button>
@@ -37,13 +31,14 @@
         <div id="addNewBook" class="addNewBook">
             <h2>Add New Book</h2>
             <form action="">
-                <input type="text" name="author" placeholder="Author">
-                <input type="text" name="title" placeholder="Title">
-                <input type="text"name="numberPages" placeholder="Number of Pages">
-                <div class="radio" name="read">
-                    <input type="radio" name="readStatus" value="notRead" checked>Not Read <br>
+                <input id="author" type="text" name="author" placeholder="Author">
+                <input id="title" type="text" name="title" placeholder="Title">
+                <input id="numberPages" type="text"name="numberPages" placeholder="Number of Pages">
+                <div id="hasRead" class="radio" name="read">
+                    <input type="radio" name="readStatus" value="Not Read" checked>Not Read <br>
                     <input type="radio" name="readStatus" value="Read">Read
                 </div> 
+                <button id="submit" type="button">Submit Book</button>
             </form>
         </div>
     </main>
